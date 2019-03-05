@@ -1,7 +1,7 @@
 name: short_readable_id
 description: A short human readable and easily memorable unique id generator.
 version: 1.5.0
-homepage: https://www.example.com
+homepage: https://github.com/tejainece/short_readable_id
 author: Ravi Teja Gudapati <tejainece@gmail.com>
 
 environment:

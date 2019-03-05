@@ -1,5 +1,7 @@
 import 'dart:math';
 
+final idGenerator = IdGenerator();
+
 /// Short unique id generator
 class IdGenerator {
   /// Worker id. This should be unique across concurrent generators intended to

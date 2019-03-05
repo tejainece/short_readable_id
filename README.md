@@ -6,8 +6,7 @@ A short human readable and easily memorable unique id generator.
 
 ```dart
 void main() {
-  final gen = IdGenerator();
-  print(gen.generateReadable());  // => VVGU-976
+  print(idGenerator.generateReadable());  // => VVGU-976
 }
 ```
 
@@ -18,8 +17,7 @@ between alphabetical and numerical parts of the id.
 
 ```dart
 void main() {
-  final gen = IdGenerator();
-  print(gen.generateReadable(separator: ''));  // => VVGU976
+  print(idGenerator.generateReadable(separator: ''));  // => VVGU976
 }
 ```
 
@@ -27,8 +25,7 @@ void main() {
 
 ```dart
 void main() {
-  final gen = IdGenerator();
-  print(gen.generate());  // => 1YQOBQO
+  print(idGenerator.generate());  // => 1YQOBQO
 }
 ```
 

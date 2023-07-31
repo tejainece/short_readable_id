@@ -13,19 +13,18 @@ class IdGenerator {
 
   int _counter = 0;
 
-  int _startTimestamp;
+  late int _startTimestamp;
 
-  int _previousTimestamp;
+  late int _previousTimestamp;
 
   final Random _rand;
 
   /// Use [refDate] to configure reference date to compute time part of the id.
   /// Use [workerId] to maintain uniqueness when concurrent generators are used.
-  IdGenerator({this.workerId = 0, DateTime refDate})
+  IdGenerator({this.workerId = 0, DateTime? refDate})
       : refDate = refDate ?? DateTime(2019).toUtc(),
         _rand = Random.secure() {
-    _startTimestamp =
-        (DateTime.now().toUtc().difference(this.refDate)).inMinutes;
+    _startTimestamp = (DateTime.now().toUtc().difference(this.refDate)).inMinutes;
   }
 
   String generate() {

@@ -1,4 +1,3 @@
-import 'package:short_readable_id/short_readable_id.dart';
 import 'package:test/test.dart';
 
 void main() {

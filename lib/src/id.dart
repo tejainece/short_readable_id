@@ -13,15 +13,15 @@ class IdGenerator {
 
   int _counter = 0;
 
-  int _startTimestamp;
+  late final int _startTimestamp;
 
-  int _previousTimestamp;
+  int? _previousTimestamp;
 
   final Random _rand;
 
   /// Use [refDate] to configure reference date to compute time part of the id.
   /// Use [workerId] to maintain uniqueness when concurrent generators are used.
-  IdGenerator({this.workerId = 0, DateTime refDate})
+  IdGenerator({this.workerId = 0, DateTime? refDate})
       : refDate = refDate ?? DateTime(2019).toUtc(),
         _rand = Random.secure() {
     _startTimestamp =
@@ -42,9 +42,9 @@ class IdGenerator {
     }
 
     if (workerId != 0) sb.write(_format36(workerId));
-    if (minutes != _startTimestamp)
+    if (minutes != _startTimestamp) {
       sb.write(_format36(_rand.nextInt(256)));
-    else {
+    } else {
       sb.write(_format36(_rand.nextInt(2048) + 256));
     }
 
@@ -69,9 +69,9 @@ class IdGenerator {
     sb.write(separator);
 
     if (workerId != 0) sb.write(_format10(workerId));
-    if (minutes != _startTimestamp)
+    if (minutes != _startTimestamp) {
       sb.write(_format10(_rand.nextInt(256)));
-    else {
+    } else {
       sb.write(_format10(_rand.nextInt(2048) + 256));
     }
 
@@ -99,10 +99,11 @@ class IdGenerator {
       }
     }
 
-    if (!converted)
+    if (!converted) {
       return ret;
-    else
+    } else {
       return sb.toString();
+    }
   }
 
   String _format16(int number) => number.toRadixString(16);
